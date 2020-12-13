@@ -4,8 +4,8 @@ var authConfig = {
   version: "1.1.2", // 程序版本
   theme: "acrou",
   // 强烈推荐使用自己的 client_id 和 client_secret
-  client_id: "202264815644.apps.googleusercontent.com",
-  client_secret: "X4Z3ca8xfWDb1Voo-F9a7ZxJ",
+  client_id: "",
+  client_secret: "",
   refresh_token: "", // 授权 token
   /**
    * 设置要显示的多个云端硬盘；按格式添加多个
@@ -65,7 +65,7 @@ var authConfig = {
 };
 
 var themeOptions = {
-  cdn: "https://cdn.jsdelivr.net/gh/Aicirou/goindex-theme-acrou",
+  cdn: "https://cdn.jsdelivr.net/gh/hirale/goindex-theme-acrou",
   // 主题版本号
   version: "2.0.8",
   //可选默认系统语言:en/zh-chs/zh-cht
@@ -151,8 +151,41 @@ function html(current_drive_order = 0, model = {}) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
   <title>${authConfig.siteName}</title>
+  <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://magento.com/favicon.ico">
   <style>
     @import url(${themeOptions.cdn}@${themeOptions.version}/dist/style.min.css);
+  </style>
+  <style type="text/css">
+      .donate {
+          position: relative
+      }
+      .donate .qrcode {
+          display: none;
+          position: absolute;
+          z-index: 99;
+          bottom: 2.5em;
+          line-height: 0;
+          overflow: hidden;
+          border-radius: 4px;
+          box-shadow: 0 4px 10px rgba(0,0,0,.1),0 0 1px rgba(0,0,0,.2);
+          overflow: hidden;
+      }
+      .donate .qrcode img {
+          max-width: 280px
+      }
+      .donate:hover .qrcode {
+          display: block
+      }
+      .donate:first-child:not(:last-child) .qrcode {
+          left: -4rem
+      }
+      .donate:last-child:not(:first-child) .qrcode {
+          right: -4rem
+      }
+      .plyr__caption {
+      background: none !important;
+      text-shadow: black 0.1em 0.1em 0.2em !important;
+      }
   </style>
   <script>
     window.gdconfig = JSON.parse('${JSON.stringify({
